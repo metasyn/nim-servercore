@@ -1,5 +1,6 @@
 #escape=`
 FROM microsoft/windowsservercore
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 ENV chocolateyUseWindowsCompression false
 
