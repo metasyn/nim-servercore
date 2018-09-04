@@ -13,8 +13,8 @@ RUN git clone https://github.com/nim-lang/Nim.git
 RUN cd Nim; `
     git clone --depth 1 https://github.com/nim-lang/csources.git; `
     cd csources; `
-    Start-Process "./build64.bat"; `
-    cd ..; `
-    .\bin\nim c koch; `
-    koch boot -d:release; `
-    koch tools
+    Start-Process ".\build64.bat"; `
+    cd .. ; `
+    Start-Process "bin\nim c koch"; `
+    Start-Process "koch boot -d:release"; `
+    Start-Process "koch tools"
