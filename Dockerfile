@@ -11,7 +11,7 @@ RUN choco install git -y
 
 RUN git clone https://github.com/nim-lang/Nim.git
 RUN cd Nim; `
-    build64.bat | cmd; `
+    "build64.bat" | cmd; `
     cd ..; `
     bin\nim c koch; `
     koch boot -d:release; `
