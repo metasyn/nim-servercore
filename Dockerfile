@@ -4,8 +4,7 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPref
 
 ENV chocolateyUseWindowsCompression false
 
-RUN powershell -Command `
-    iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1')); `
+RUN iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1')); `
     choco feature disable --name showDownloadProgress
 
 RUN choco install git -y
