@@ -1,5 +1,5 @@
 #escape=`
-FROM microsoft/windowsservercore:1803
+FROM microsoft/windowsservercore
 
 ENV chocolateyUseWindowsCompression false
 
