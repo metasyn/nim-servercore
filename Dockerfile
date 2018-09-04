@@ -9,8 +9,8 @@ RUN powershell -Command `
 
 RUN choco install git -y
 
-RUN git clone https://github.com/nim-lang/Nim.git; `
-    cd Nim; `
+RUN git clone https://github.com/nim-lang/Nim.git
+RUN cd Nim; `
     build64.bat; `
     cd ..; `
     bin\nim c koch; `
