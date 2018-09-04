@@ -3,9 +3,9 @@ FROM microsoft/windowsservercore:1803
 
 ENV chocolateyUseWindowsCompression false
 
-RUN powershell -Command \
+RUN powershell -Command `
     iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1')); `
-    choco feature disable --name showDownloadProgress `
+    choco feature disable --name showDownloadProgress
 
 RUN choco install git -y
 
