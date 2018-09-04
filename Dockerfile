@@ -9,10 +9,10 @@ RUN powershell -Command `
 
 RUN choco install git -y
 
-RUN git clone https://github.com/nim-lang/Nim.git `
-    cd Nim `
-    build64.bat `
-    cd .. `
-    bin\nim c koch `
-    koch boot -d:release `
+RUN git clone https://github.com/nim-lang/Nim.git; `
+    cd Nim; `
+    build64.bat; `
+    cd ..; `
+    bin\nim c koch; `
+    koch boot -d:release; `
     koch tools
