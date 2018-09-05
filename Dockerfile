@@ -9,12 +9,19 @@ RUN iex ((new-object net.webclient).DownloadString('https://chocolatey.org/insta
 
 RUN choco install git mingw -y
 
-RUN git clone https://github.com/nim-lang/Nim.git
-RUN cd Nim; `
+RUN git clone https://github.com/nim-lang/Nim.git; `
+    cd Nim; `
     git clone --depth 1 https://github.com/nim-lang/csources.git; `
     cd csources; `
-    Start-Process ".\build64.bat"; `
+    .\build64.bat; `
     cd .. ; `
-    Start-Process "bin\nim c koch"; `
-    Start-Process "koch boot -d:release"; `
-    Start-Process "koch tools"
+    bin\nim.exe c koch; `
+    .\koch.exe boot -d:release; `
+    .\koch.exe tools
+
+COPY Set-Path.ps1 .
+RUN .\Set-Path.ps1 -NewLocation "C:\Nim\bin"
+
+RUN choco install openssl.light
+
+ENTRYPOINT powershell.exe
