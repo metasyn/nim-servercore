@@ -12,7 +12,7 @@ RUN iex ((new-object net.webclient).DownloadString('https://chocolatey.org/insta
 
 RUN choco install git mingw -y
 
-RUN git clone https://github.com/nim-lang/Nim.git `
+RUN git clone https://github.com/nim-lang/Nim.git; `
     cd Nim; `
     git checkout $BRANCH; `
     git clone --depth 1 https://github.com/nim-lang/csources.git; `
