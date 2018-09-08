@@ -17,9 +17,16 @@ RUN git clone https://github.com/nim-lang/Nim.git `
     git checkout $BRANCH; `
     git clone --depth 1 https://github.com/nim-lang/csources.git; `
     cd csources; `
-    Start-Process ".\build64.bat"; `
+    .\build64.bat; `
     cd .. ; `
-    dir; dir bin; `
-    bin\nim c koch; `
-    Start-Process "koch boot -d:release"; `
-    Start-Process "koch tools"
+    bin\nim.exe c koch; `
+    .\koch.exe boot -d:release; `
+    .\koch.exe tools
+
+COPY Set-Path.ps1 .
+RUN .\Set-Path.ps1 -NewLocation "C:\Nim\bin"
+
+RUN choco install openssl.light -y
+
+ENTRYPOINT powershell.exe
+>>>>>>> edc399cd38ac948e2c8aef90046b3620af82ec02
