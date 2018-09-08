@@ -5,5 +5,5 @@
 Building [Nim](https://nim-lang.org/) on `microsoft/windowsservercore`.
 
 Build args:
-    `TAG`: the tag to use when pull `microsoft/windowsservcore`, e.g. `1803`
-    `BRANCH`: the branch to use when checking out https://github.com/nim-lang/nim
+    - `TAG`: the tag to use when pull `microsoft/windowsservcore`, e.g. `1803`
+    - `BRANCH`: the branch to use when checking out https://github.com/nim-lang/nim
