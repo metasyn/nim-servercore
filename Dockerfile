@@ -26,6 +26,4 @@ RUN git clone https://github.com/nim-lang/Nim.git; `
 COPY Set-Path.ps1 .
 RUN .\Set-Path.ps1 -NewLocation "C:\Nim\bin"
 
-RUN choco install openssl.light -y
-
 ENTRYPOINT powershell.exe
