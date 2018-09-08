@@ -18,5 +18,5 @@ test_script:
   - ps: docker run metasyn/nim-servercore "nimble.exe --version"
 
 deploy_script:
-  - ps: docker login -u="$env:DOCKER_USER" -p="$env:DOCKER_PASS"
-  - ps: docker push me/myfavoriteapp
+  - ps: echo $env:DOCKER_PASS | docker login -u="$env:DOCKER_USER" --password-stdin
+  - ps: docker push metasyn/nim-servercore

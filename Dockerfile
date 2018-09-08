@@ -29,6 +29,7 @@ RUN cd C:\Nim\bin; `
     rm dlls.zip
 
 COPY Set-Path.ps1 .
-RUN .\Set-Path.ps1 -NewLocation "C:\Nim\bin"
+RUN .\Set-Path.ps1 -NewLocation "C:\Nim\bin"; `
+    .\Set-Path.ps1 -NewLocation "$env:USERPROFILE\.nimble\bin";
 
 ENTRYPOINT powershell.exe
