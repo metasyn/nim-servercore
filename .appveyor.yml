@@ -16,7 +16,6 @@ build_script:
 test_script:
   - docker run metasyn/nim-servercore "nim.exe --version"
   - docker run metasyn/nim-servercore "nimble.exe --version"
-  - docker run metasyn/nim-servercore "koch.exe --version"
 
 deploy_script:
   - docker login -u="$env:DOCKER_USER" -p="$env:DOCKER_PASS"
