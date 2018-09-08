@@ -7,17 +7,16 @@ environment:
   DOCKER_PASS:
     secure: o3eE7YJ2gi4hP5bJClZFIQ==
 
-
 install:
-  - docker version
+  - ps: docker version
 
 build_script:
-  - docker build -t metasyn/nim-servercore .
+  - ps: docker build -t metasyn/nim-servercore .
 
 test_script:
-  - docker run metasyn/nim-servercore "nim.exe --version"
-  - docker run metasyn/nim-servercore "nimble.exe --version"
+  - ps: docker run metasyn/nim-servercore "nim.exe --version"
+  - ps: docker run metasyn/nim-servercore "nimble.exe --version"
 
 deploy_script:
-  - docker login -u="$env:DOCKER_USER" -p="$env:DOCKER_PASS"
-  - docker push me/myfavoriteapp
+  - ps: docker login -u="$env:DOCKER_USER" -p="$env:DOCKER_PASS"
+  - ps: docker push me/myfavoriteapp

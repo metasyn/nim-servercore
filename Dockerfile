@@ -10,7 +10,7 @@ ENV chocolateyUseWindowsCompression false
 RUN iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1')); `
     choco feature disable --name showDownloadProgress
 
-RUN choco install git mingw -y
+RUN choco install git 7zip mingw -y
 
 RUN git clone https://github.com/nim-lang/Nim.git; `
     cd Nim; `
@@ -22,6 +22,11 @@ RUN git clone https://github.com/nim-lang/Nim.git; `
     bin\nim.exe c koch; `
     .\koch.exe boot -d:release; `
     .\koch.exe tools
+
+RUN cd C:\Nim\bin; `
+    Invoke-WebRequest -UseBasicParsing https://nim-lang.org/download/dlls.zip -O dlls.zip; `
+    7z x dlls.zip; `
+    rm dlls.zip
 
 COPY Set-Path.ps1 .
 RUN .\Set-Path.ps1 -NewLocation "C:\Nim\bin"
