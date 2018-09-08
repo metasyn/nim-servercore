@@ -1,8 +1,23 @@
 version: 1.0.{build}
 image: Visual Studio 2017
 
+environment:
+  DOCKER_USER:
+    secure: 7BkTuGmikCga9dcNvdy9sw==
+  DOCKER_PASS:
+    secure: o3eE7YJ2gi4hP5bJClZFIQ==
+
 install:
   - docker version
 
 build_script:
-  - docker build -t metasyn/docker-win-nim .
+  - docker build -t metasyn/nim-servercore .
+
+test_script:
+  - docker run metasyn/nim-servercore "nim.exe --version"
+  - docker run metasyn/nim-servercore "nimble.exe --version"
+  - docker run metasyn/nim-servercore "koch.exe --version"
+
+deploy_script:
+  - docker login -u="$env:DOCKER_USER" -p="$env:DOCKER_PASS"
+  - docker push me/myfavoriteapp

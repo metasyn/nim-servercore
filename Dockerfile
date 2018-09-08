@@ -29,4 +29,3 @@ RUN .\Set-Path.ps1 -NewLocation "C:\Nim\bin"
 RUN choco install openssl.light -y
 
 ENTRYPOINT powershell.exe
->>>>>>> edc399cd38ac948e2c8aef90046b3620af82ec02
